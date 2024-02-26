@@ -24,7 +24,7 @@ void *thread1_function(void *arg)
     int cnt = 0;
 
     // Infinite loop to simulate a thread doing some work
-    while (cnt < 100)
+    while (cnt < 1000)
     {
         ++cnt;
         usleep(10 * 1000);
