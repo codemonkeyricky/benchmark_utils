@@ -4,8 +4,8 @@
 #include <unistd.h>
 
 #define NUM_THREADS 5
-#define THREAD_1_PRIORITY 50
-#define THREAD_2_PRIORITY 60
+#define THREAD_1_PRIORITY 60
+#define THREAD_2_PRIORITY 50
 
 void *thread1_function(void *arg)
 {
@@ -21,12 +21,18 @@ void *thread1_function(void *arg)
         exit(EXIT_FAILURE);
     }
 
+    int cnt = 0;
+
     // Infinite loop to simulate a thread doing some work
-    while (1)
+    while (cnt < 100)
     {
-        // printf("Thread %d is running\n", thread_number);
-        // sleep(1);
+        ++cnt;
+        usleep(10 * 1000);
     }
+
+    printf("### cnt = %d\n", cnt);
+
+    exit(0);
 
     pthread_exit(NULL);
 }
